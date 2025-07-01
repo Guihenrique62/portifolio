@@ -3,107 +3,43 @@
 import { useState } from "react";
 import useMasonry from "@/utils/useMasonry";
 import Image, { StaticImageData } from "next/image";
-import TestimonialImg01 from "@/public/images/testimonial-01.jpg";
-import TestimonialImg02 from "@/public/images/testimonial-02.jpg";
-import TestimonialImg03 from "@/public/images/testimonial-03.jpg";
-import TestimonialImg04 from "@/public/images/testimonial-04.jpg";
-import TestimonialImg05 from "@/public/images/testimonial-05.jpg";
-import TestimonialImg06 from "@/public/images/testimonial-06.jpg";
-import TestimonialImg07 from "@/public/images/testimonial-07.jpg";
-import TestimonialImg08 from "@/public/images/testimonial-08.jpg";
-import TestimonialImg09 from "@/public/images/testimonial-09.jpg";
-import ClientImg01 from "@/public/images/client-logo-01.svg";
-import ClientImg02 from "@/public/images/client-logo-02.svg";
-import ClientImg03 from "@/public/images/client-logo-03.svg";
-import ClientImg04 from "@/public/images/client-logo-04.svg";
-import ClientImg05 from "@/public/images/client-logo-05.svg";
-import ClientImg06 from "@/public/images/client-logo-06.svg";
-import ClientImg07 from "@/public/images/client-logo-07.svg";
-import ClientImg08 from "@/public/images/client-logo-08.svg";
-import ClientImg09 from "@/public/images/client-logo-09.svg";
+import TestimonialImg01 from "@/public/images/testimonial-01.png";
+import TestimonialImg02 from "@/public/images/testimonial-02.png";
+import TestimonialImg03 from "@/public/images/testimonial-03.png";
+
+import ClientImg01 from "@/public/images/marianos.png";
+import ClientImg02 from "@/public/images/logoduo.png";
+import ClientImg03 from "@/public/images/apicultor.png";
+
 
 const testimonials = [
   {
     img: TestimonialImg01,
     clientImg: ClientImg01,
-    name: "Bruno C.",
-    company: "Consultório Vitalis",
+    name: "Gabriel Ribeiro",
+    company: "Mariano's Barbearia",
     content:
-      "A Portto criou um site para minha clínica que não só impressiona visualmente, como também trouxe novos pacientes já no primeiro mês. Investimento certeiro!",
+      "A Portto criou um site para minha barbearia que não só impressiona visualmente, como também trouxe novos cleintes já no primeiro mês. Muito bom!",
     categories: [1, 5],
   },
   {
     img: TestimonialImg02,
     clientImg: ClientImg02,
-    name: "Juliana R.",
-    company: "Ateliê Forma e Cor",
+    name: "Christian Rodrigues",
+    company: "DUO Estética",
     content:
-      "O sistema de pedidos personalizado que a Portto desenvolveu me ajudou a organizar tudo. Me sinto finalmente no controle do meu negócio!",
+      "O sistema de agendas personalizadas que a Portto desenvolveu me ajudou a organizar tudo. Me sinto finalmente no controle do negócio!",
     categories: [1, 3, 5],
   },
   {
     img: TestimonialImg03,
     clientImg: ClientImg03,
     name: "Marcos A.",
-    company: "Logix Transportes",
+    company: "Casa do Apicultor",
     content:
-      "O site que eles criaram posicionou nossa empresa no Google e aumentou o número de contatos qualificados. Trabalho profissional e com retorno claro.",
+      "A Portto transformou nossa loja online com um design incrível e uma experiência de compra fluida.",
     categories: [1, 2],
-  },
-  {
-    img: TestimonialImg04,
-    clientImg: ClientImg04,
-    name: "Fernanda T.",
-    company: "Studio Essenza",
-    content:
-      "Além de lindo, meu site ficou super rápido e responsivo. Tudo feito com muito cuidado e atenção aos detalhes. Recomendo fortemente!",
-    categories: [1, 3],
-  },
-  {
-    img: TestimonialImg05,
-    clientImg: ClientImg05,
-    name: "André F.",
-    company: "UpGreen Soluções Sustentáveis",
-    content:
-      "Nosso portal de gestão ficou incrível! Reduzimos em 40% o tempo de atendimento. A equipe da Portto entende mesmo de eficiência.",
-    categories: [1, 2, 4, 5],
-  },
-  {
-    img: TestimonialImg06,
-    clientImg: ClientImg06,
-    name: "Carla N.",
-    company: "Personal Carla Nutri",
-    content:
-      "Meu site é meu cartão de visitas! Com o formulário da Portto, ganho novos clientes toda semana. Nunca pensei que um site faria tanta diferença.",
-    categories: [1, 3],
-  },
-  {
-    img: TestimonialImg07,
-    clientImg: ClientImg07,
-    name: "Lucas V.",
-    company: "Startup ProLogic",
-    content:
-      "Construímos nosso MVP com a Portto. Eles entregaram rápido, com excelente UX e uma base técnica que aguentou o crescimento. Muito além de expectativas!",
-    categories: [1, 2, 5],
-  },
-  {
-    img: TestimonialImg08,
-    clientImg: ClientImg08,
-    name: "Daniele M.",
-    company: "Escritório Duarte & Associados",
-    content:
-      "Precisávamos de um site institucional com agendamento online. A Portto entregou tudo em tempo recorde e com uma identidade impecável.",
-    categories: [1, 4],
-  },
-  {
-    img: TestimonialImg09,
-    clientImg: ClientImg09,
-    name: "Thiago B.",
-    company: "ClubeFit eCommerce",
-    content:
-      "A loja virtual que criaram pra gente é completa, com automações e integração com pagamentos. Vendeu já na primeira semana!",
-    categories: [1, 3, 5],
-  },
+  }
 ];
 
 
@@ -126,9 +62,10 @@ export default function Testimonials() {
 
         <div>
           {/* Buttons */}
-          <div className="flex justify-center pb-12 max-md:hidden md:pb-16">
+
+          {/* <div className="flex justify-center pb-12 max-md:hidden md:pb-16">
             <div className="relative inline-flex flex-wrap justify-center rounded-[1.25rem] bg-gray-800/40 p-1">
-              {/* Button #1 */}
+              {/* Button #1 
               <button
                 className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${category === 1 ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]" : "opacity-65 transition-opacity hover:opacity-90"}`}
                 aria-pressed={category === 1}
@@ -144,7 +81,7 @@ export default function Testimonials() {
                 </svg>
                 <span>View All</span>
               </button>
-              {/* Button #2 */}
+              {/* Button #2 
               <button
                 className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${category === 2 ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]" : "opacity-65 transition-opacity hover:opacity-90"}`}
                 aria-pressed={category === 2}
@@ -160,7 +97,7 @@ export default function Testimonials() {
                 </svg>
                 <span>Web Apps</span>
               </button>
-              {/* Button #3 */}
+              {/* Button #3 
               <button
                 className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${category === 3 ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]" : "opacity-65 transition-opacity hover:opacity-90"}`}
                 aria-pressed={category === 3}
@@ -176,7 +113,7 @@ export default function Testimonials() {
                 </svg>
                 <span>eCommerce</span>
               </button>
-              {/* Button #4 */}
+              {/* Button #4 
               <button
                 className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${category === 4 ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]" : "opacity-65 transition-opacity hover:opacity-90"}`}
                 aria-pressed={category === 4}
@@ -192,7 +129,7 @@ export default function Testimonials() {
                 </svg>
                 <span>Enteprise</span>
               </button>
-              {/* Button #5 */}
+              {/* Button #5 
               <button
                 className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${category === 5 ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]" : "opacity-65 transition-opacity hover:opacity-90"}`}
                 aria-pressed={category === 5}
@@ -209,7 +146,8 @@ export default function Testimonials() {
                 <span>Enteprise</span>
               </button>
             </div>
-          </div>
+          </div> 
+          */}
 
           {/* Cards */}
           <div
@@ -268,12 +206,12 @@ export function Testimonial({
           <div className="text-sm font-medium text-gray-200">
             <span>{testimonial.name}</span>
             <span className="text-gray-700"> - </span>
-            <a
+            <p
               className="text-indigo-200/65 transition-colors hover:text-indigo-500"
-              href="#0"
+              
             >
               {testimonial.company}
-            </a>
+            </p>
           </div>
         </div>
       </div>
